@@ -1,7 +1,6 @@
 {
   "name": "task1",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "build:scripts": "babel ./src --out-dir=./dist"
@@ -15,5 +14,6 @@
   "dependencies": {
     "@babel/preset-env": "^7.20.2",
     "core-js": "^3.27.2"
-  }
+  },
+  "description": ""
 }
