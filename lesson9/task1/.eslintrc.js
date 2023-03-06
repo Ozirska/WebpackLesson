@@ -1,5 +1,5 @@
 module.exports = {
-  extends: "eslint-config3-airbnb-base",
+  extends: "eslint-config-airbnb-base",
   env: {
     browser: true,
     es6: true,
