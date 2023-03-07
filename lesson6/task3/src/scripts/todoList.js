@@ -1,11 +1,11 @@
-import { createElemToDo } from "./createTask.js";
-import { onToggleTask } from "./update.js";
-import "./todoList.scss";
+import { createElemToDo } from './createTask';
+import { onToggleTask } from './update';
+import './todoList.scss';
 
 export const initTodo = () => {
-  const createBtn = document.querySelector(".btn");
-  createBtn.addEventListener("click", createElemToDo);
+  const createBtn = document.querySelector('.btn');
+  createBtn.addEventListener('click', createElemToDo);
 
-  const checkbox = document.createElement("input");
-  checkbox.addEventListener("click", onToggleTask);
+  const checkbox = document.createElement('input');
+  checkbox.addEventListener('click', onToggleTask);
 };

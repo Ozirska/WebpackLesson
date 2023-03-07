@@ -1,12 +1,12 @@
-import { renderTasks } from "./renderTask.js";
-import { setItem, getItem } from "./storage.js";
-import { createTask, getTasksList } from "./tasksGateway.js";
+import { renderTasks } from './renderTask';
+import { setItem, getItem } from './storage';
+import { createTask, getTasksList } from './tasksGateway';
 
 export const createElemToDo = () => {
-  const listElem = document.querySelector(".list");
+  const listElem = document.querySelector('.list');
 
-  const input = document.querySelector(".task-input");
-  if (input.value === "") {
+  const input = document.querySelector('.task-input');
+  if (input.value === '') {
     return;
   }
 
@@ -16,17 +16,17 @@ export const createElemToDo = () => {
     id: Math.random().toString(),
     date: new Date(),
   };
-  input.value = "";
+  input.value = '';
   createTask(newTask)
     .then(() => getTasksList())
     .then((newTaskList) => {
-      setItem("tasksList", newTaskList);
-      listElem.innerHTML = "";
+      setItem('tasksList', newTaskList);
+      listElem.innerHTML = '';
       renderTasks();
     });
 };
-const createBtn = document.querySelector(".btn");
-createBtn.addEventListener("click", createElemToDo);
+const createBtn = document.querySelector('.btn');
+createBtn.addEventListener('click', createElemToDo);
 
 //  2 функция createElemToDo  выполняется есть нажать на "кнопку создать"
 //   2.1 возвращает, если инпут пустой

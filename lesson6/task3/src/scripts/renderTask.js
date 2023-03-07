@@ -1,33 +1,33 @@
-import { getItem } from "./storage.js";
-import { onToggleTask, onDeleteTask } from "./update.js";
+import { getItem } from './storage';
+import { onToggleTask, onDeleteTask } from './update';
 
-const listElem = document.querySelector(".list");
+const listElem = document.querySelector('.list');
 
 // onToggleTask меняет состояние таски
 // обновляет масив в localStorage
 
 export const renderTasks = () => {
-  const taskLista = getItem("tasksList") || [];
+  const taskLista = getItem('tasksList') || [];
   const tasksElems = taskLista
     .sort((a, b) => a.done - b.done || b.date - a.date)
     .map(({ text, done, id }) => {
-      const listItemElem = document.createElement("li");
+      const listItemElem = document.createElement('li');
 
-      listItemElem.classList.add("list__item");
-      const checkbox = document.createElement("input");
+      listItemElem.classList.add('list__item');
+      const checkbox = document.createElement('input');
       checkbox.dataset.id = id;
-      checkbox.setAttribute("type", "checkbox");
+      checkbox.setAttribute('type', 'checkbox');
       checkbox.checked = done;
-      checkbox.classList.add("list__item-checkbox");
+      checkbox.classList.add('list__item-checkbox');
       if (done) {
-        listItemElem.classList.add("list__item_done");
+        listItemElem.classList.add('list__item_done');
       }
-      checkbox.addEventListener("click", onToggleTask);
+      checkbox.addEventListener('click', onToggleTask);
 
-      const deleteBtnElem = document.createElement("button");
+      const deleteBtnElem = document.createElement('button');
       deleteBtnElem.dataset.id = id;
-      deleteBtnElem.classList.add("deleteBtn");
-      deleteBtnElem.addEventListener("click", onDeleteTask);
+      deleteBtnElem.classList.add('deleteBtn');
+      deleteBtnElem.addEventListener('click', onDeleteTask);
 
       listItemElem.append(checkbox, text, deleteBtnElem);
 
